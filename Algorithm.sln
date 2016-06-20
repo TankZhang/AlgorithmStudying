@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0613HanNuo", "0613HanNuo\06
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0613DPProblem", "0613DPProblem\0613DPProblem.csproj", "{5966EF2C-13C6-401D-AE6E-89F600349D14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0613BigestHouse", "0613BigestHouse\0613BigestHouse.csproj", "{5D38866D-20A5-4E3C-8BCB-3017F7B6E1B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0620MergeSort", "0620MergeSort\0620MergeSort.csproj", "{10716A7C-2301-4615-B7BE-9A1B8B5B7788}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{5966EF2C-13C6-401D-AE6E-89F600349D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5966EF2C-13C6-401D-AE6E-89F600349D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5966EF2C-13C6-401D-AE6E-89F600349D14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D38866D-20A5-4E3C-8BCB-3017F7B6E1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D38866D-20A5-4E3C-8BCB-3017F7B6E1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D38866D-20A5-4E3C-8BCB-3017F7B6E1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D38866D-20A5-4E3C-8BCB-3017F7B6E1B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10716A7C-2301-4615-B7BE-9A1B8B5B7788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10716A7C-2301-4615-B7BE-9A1B8B5B7788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10716A7C-2301-4615-B7BE-9A1B8B5B7788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10716A7C-2301-4615-B7BE-9A1B8B5B7788}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
