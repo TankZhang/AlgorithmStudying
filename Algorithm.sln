@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0713_33计算字符串相�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0713_34无头单链表中删除节点", "0713_34无头单链表中删除节点\0713_34无头单链表中删除节点.vcxproj", "{02EFD03D-A2CE-4B78-91A4-A9BDA6F0987B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0714_38求二叉树中节点的最大距离", "0714_38求二叉树中节点的最大距离\0714_38求二叉树中节点的最大距离.vcxproj", "{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +133,16 @@ Global
 		{02EFD03D-A2CE-4B78-91A4-A9BDA6F0987B}.Release|x64.Build.0 = Release|x64
 		{02EFD03D-A2CE-4B78-91A4-A9BDA6F0987B}.Release|x86.ActiveCfg = Release|Win32
 		{02EFD03D-A2CE-4B78-91A4-A9BDA6F0987B}.Release|x86.Build.0 = Release|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Debug|x64.ActiveCfg = Debug|x64
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Debug|x64.Build.0 = Debug|x64
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Debug|x86.ActiveCfg = Debug|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Debug|x86.Build.0 = Debug|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Release|Any CPU.ActiveCfg = Release|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Release|x64.ActiveCfg = Release|x64
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Release|x64.Build.0 = Release|x64
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Release|x86.ActiveCfg = Release|Win32
+		{CD97D4CC-F9CA-495E-B4DA-5360EF28AD2A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
