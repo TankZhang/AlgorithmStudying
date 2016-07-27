@@ -107,11 +107,31 @@ void BubbleSort2_2(int nums[], int n)
 	}
 }
 
+//3nd
+void BubbleSort2_3(int nums[], int n)
+{
+	bool flag = true;
+	for (int i = 0; i < n&&flag; i++)
+	{
+		flag = false;
+		for (int j = 1; j < n-i; j++)
+		{
+			if(nums[j-1]>nums[j])
+			{
+				nums[j - 1] = nums[j - 1] + nums[j];
+				nums[j] = nums[j - 1] - nums[j];
+				nums[j-1]= nums[j - 1] - nums[j];
+				flag = true;
+			}
+		}
+	}
+}
+
 int main()
 {
 	int nums[] = { 1,3,2,7,8,5,4 };
 	int n = 7;
-	BubbleSort2_2(nums, n);
+	BubbleSort2_3(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d  ", nums[i]);
