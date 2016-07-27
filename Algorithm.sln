@@ -25,6 +25,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0714_38求二叉树中节�
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0727_冒泡排序", "0727_冒泡排序\0727_冒泡排序.vcxproj", "{4DCD75B3-B111-423E-8610-EB31F43E17E7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "0727_直接插入排序", "0727_直接插入排序\0727_直接插入排序.vcxproj", "{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +157,16 @@ Global
 		{4DCD75B3-B111-423E-8610-EB31F43E17E7}.Release|x64.Build.0 = Release|x64
 		{4DCD75B3-B111-423E-8610-EB31F43E17E7}.Release|x86.ActiveCfg = Release|Win32
 		{4DCD75B3-B111-423E-8610-EB31F43E17E7}.Release|x86.Build.0 = Release|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Debug|x64.ActiveCfg = Debug|x64
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Debug|x64.Build.0 = Debug|x64
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Debug|x86.ActiveCfg = Debug|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Debug|x86.Build.0 = Debug|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Release|x64.ActiveCfg = Release|x64
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Release|x64.Build.0 = Release|x64
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Release|x86.ActiveCfg = Release|Win32
+		{D15F195E-F65D-44E5-84DB-7220BE4DEB2E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
