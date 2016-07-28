@@ -94,7 +94,26 @@ void InsertionSort4(int nums[], int n)
 void InsertionSort5(int nums[], int n)
 {
 	int i, j, k, temp;
-	for (i = 0; i < n; i++)
+	for (i = 1; i < n; i++)
+	{
+		for (j = i - 1; j >= 0; j--)
+			if (nums[j] < nums[i])
+				break;
+		if (j != i - 1)
+		{
+			temp = nums[i];
+			for (k = i - 1; k > j; k--)
+				nums[k + 1] = nums[k];
+			nums[k + 1] = temp;
+		}
+	}
+}
+
+//6th
+void InsertionSort6(int nums[], int n)
+{
+	int i, j, k, temp;
+	for (i = 1; i < n; i++)
 	{
 		for (j = i - 1; j >= 0; j--)
 			if (nums[j] < nums[i])
@@ -114,7 +133,7 @@ int main()
 	int nums[] = { 1,3,2,7,8,5,4 };
 	//int nums[] = {7,6,5,4,3,2,1 };
 	int n = 7;
-	InsertionSort5(nums, n);
+	InsertionSort6(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d  ", nums[i]);
