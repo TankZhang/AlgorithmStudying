@@ -26,7 +26,6 @@ void SelectSort(int nums[], int n)
 				nums[j] = nums[j] - nums[i];
 			}
 }
-
 //2nd
 void SelectSort2(int nums[], int n)
 {
@@ -40,13 +39,25 @@ void SelectSort2(int nums[], int n)
 				nums[j] = nums[j] - nums[i];
 			}
 }
-
+//3rd
+void SelectSort3(int nums[], int n)
+{
+	int i, j;
+	for(i=0;i<n;i++)
+		for(j=i+1;j<n;j++)
+			if (nums[j] < nums[i])
+			{
+				nums[j] = nums[i] + nums[j];
+				nums[i] = nums[j] - nums[i];
+				nums[j] = nums[j] - nums[i];
+			}
+}
 int main()
 {
 
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	SelectSort2(nums, n);
+	SelectSort3(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
