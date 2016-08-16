@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _0613BigestHouse
 {
-    //得到最大的房子面积,连续的1为房顶，只有上下左右为连续。否则不为一个房子。
+    //得到最大的房子面积,连续的1为房顶，只有上下左右为连续。否则不为一个房子 。
     class Program
     {
         static void Main(string[] args)
