@@ -65,13 +65,25 @@ void SelectSort4(int nums[], int n)
 				nums[j] = nums[j] - nums[i];
 			}
 }
-
+//5th
+void SelectSort5(int nums[], int n)
+{
+	int i, j;
+	for(i=0;i<n;i++)
+		for(j=i+1;j<n;j++)
+			if (nums[i] > nums[j])
+			{
+				nums[j] = nums[i] + nums[j];
+				nums[i] = nums[j] - nums[i];
+				nums[j] = nums[j] - nums[i];
+			}
+}
 int main()
 {
 
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	SelectSort4(nums, n);
+	SelectSort5(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
