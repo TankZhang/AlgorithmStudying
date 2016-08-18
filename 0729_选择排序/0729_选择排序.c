@@ -34,7 +34,7 @@ void SelectSort2(int nums[], int n)
 		for (j = i + 1; j < n; j++)
 			if (nums[j] < nums[i])
 			{
-				nums[j]	= nums[j] + nums[i];
+				nums[j] = nums[j] + nums[i];
 				nums[i] = nums[j] - nums[i];
 				nums[j] = nums[j] - nums[i];
 			}
@@ -43,8 +43,8 @@ void SelectSort2(int nums[], int n)
 void SelectSort3(int nums[], int n)
 {
 	int i, j;
-	for(i=0;i<n;i++)
-		for(j=i+1;j<n;j++)
+	for (i = 0; i < n; i++)
+		for (j = i + 1; j < n; j++)
 			if (nums[j] < nums[i])
 			{
 				nums[j] = nums[i] + nums[j];
@@ -56,8 +56,8 @@ void SelectSort3(int nums[], int n)
 void SelectSort4(int nums[], int n)
 {
 	int i, j;
-	for(i=0;i<n;i++)
-		for(j=i+1;j<n;j++)
+	for (i = 0; i < n; i++)
+		for (j = i + 1; j < n; j++)
 			if (nums[j] < nums[i])
 			{
 				nums[j] = nums[j] + nums[i];
@@ -69,8 +69,8 @@ void SelectSort4(int nums[], int n)
 void SelectSort5(int nums[], int n)
 {
 	int i, j;
-	for(i=0;i<n;i++)
-		for(j=i+1;j<n;j++)
+	for (i = 0; i < n; i++)
+		for (j = i + 1; j < n; j++)
 			if (nums[i] > nums[j])
 			{
 				nums[j] = nums[i] + nums[j];
@@ -78,12 +78,25 @@ void SelectSort5(int nums[], int n)
 				nums[j] = nums[j] - nums[i];
 			}
 }
+//6th
+void SelectSort6(int ns[], int n)
+{
+	int i, j;
+	for (i = 0; i < n; i++)
+		for (j = i + 1; j < n; j++)
+			if (ns[j] < ns[i])
+			{
+				ns[j] = ns[i] + ns[j];
+				ns[i] = ns[j] - ns[i];
+				ns[j] = ns[j] - ns[i];
+			}
+}
 int main()
 {
 
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	SelectSort5(nums, n);
+	SelectSort6(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);

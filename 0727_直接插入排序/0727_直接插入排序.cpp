@@ -32,7 +32,6 @@ void InsertionSort(int nums[], int n)
 		}
 	}
 }
-
 //µÚ¶þ±éÐ´
 void InsertionSort2(int nums[], int n)
 {
@@ -51,7 +50,6 @@ void InsertionSort2(int nums[], int n)
 		}
 	}
 }
-
 //3rd times
 void InsertionSort3(int nums[], int n)
 {
@@ -70,7 +68,6 @@ void InsertionSort3(int nums[], int n)
 		}
 	}
 }
-
 //4th times
 void InsertionSort4(int nums[], int n)
 {
@@ -89,7 +86,6 @@ void InsertionSort4(int nums[], int n)
 		}
 	}
 }
-
 //5th
 void InsertionSort5(int nums[], int n)
 {
@@ -108,7 +104,6 @@ void InsertionSort5(int nums[], int n)
 		}
 	}
 }
-
 //6th
 void InsertionSort6(int nums[], int n)
 {
@@ -127,7 +122,6 @@ void InsertionSort6(int nums[], int n)
 		}
 	}
 }
-
 //7th
 void InsertionSort7(int nums[], int n)
 {
@@ -146,7 +140,6 @@ void InsertionSort7(int nums[], int n)
 		}
 	}
 }
-
 //8th
 void InsertionSort8(int nums[], int n)
 {
@@ -166,7 +159,6 @@ void InsertionSort8(int nums[], int n)
 
 	}
 }
-
 //9th
 void InsertionSort9(int nums[], int n)
 {
@@ -185,7 +177,6 @@ void InsertionSort9(int nums[], int n)
 		}
 	}
 }
-
 //10th
 void InsertionSort10(int nums[], int n)
 {
@@ -206,7 +197,6 @@ void InsertionSort10(int nums[], int n)
 		}
 	}
 }
-
 //11th
 void InsertionSort11(int nums[], int n)
 {
@@ -243,11 +233,48 @@ void InsertionSort12(int nums[], int n)
 		}
 	}
 }
+//13th
+void InsertionSort13(int nums[], int n)
+{
+	int i, j, k, temp;
+	for (i = 1; i < n; i++)
+	{
+		for (j = i - 1; j >= 0; j--)
+			if (nums[j] <= nums[i])
+				break;
+		if (j != i - 1)
+		{
+			temp = nums[i];
+			for (k = i-1; k > j; k--)
+				nums[k+1] = nums[k];
+			nums[k+1] = temp;
+		}
+	}
+
+}
+//14th
+void InsertionSort14(int nums[], int n)
+{
+	int i, j, k, temp;
+	for(i=1;i<n;i++)
+	{
+		for (j = i - 1; j >= 0; j--)
+			if (nums[j] <= nums[i])
+				break;
+		if (j != i - 1)
+		{
+			temp = nums[i];
+			for (k = i - 1; k > j; k--)
+				nums[k + 1] = nums[k];
+			nums[k + 1] = temp;
+		}
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	InsertionSort12(nums, n);
+	InsertionSort14(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d  ", nums[i]);

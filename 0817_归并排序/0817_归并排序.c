@@ -62,7 +62,31 @@ void MergeSort2(int *n, int l, int h)
 		Merge2(n, l, m, h);
 	}
 }
-
+//3rd
+void Merge3(int *n, int l, int m, int h)
+{
+	int *temp;
+	temp = (int *)malloc((h - l + 1) * sizeof(int));
+	int i = l, j = m + 1,k=0;
+	while (i <=m&&j <=h)
+		temp[k++] = n[i] < n[j] ? n[i++] : n[j++];
+	while (i <= m)
+		temp[k++] = n[i++];
+	while (j <= h)
+		temp[k++] = n[j++];
+	for (i = 0, j = l; j <= h; i++, j++)
+		n[j] = temp[i];
+}
+void MergeSort3(int *n, int l, int h)
+{
+	if (l < h)
+	{
+		int m = (l + h) / 2;
+		MergeSort3(n, l, m);
+		MergeSort3(n, m+1, h);
+		Merge3(n, l, m, h);
+	}
+}
 
 
 int main()
@@ -72,7 +96,7 @@ int main()
 	int high = 9;
 	int n = 10;
 
-	MergeSort2(nums, low,high);
+	MergeSort3(nums, low,high);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
