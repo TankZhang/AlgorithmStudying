@@ -31,16 +31,13 @@ void MaxHeapFixdown1(int a[], int i, int n)
 	}
 	a[i] = temp;
 }
-//建立最大堆
-void MakeMaxHeap1(int a[], int n)
-{
-	for (int i = n / 2 - 1; i >= 0; i--)
-		MaxHeapFixdown1(a, i, n);
-}
+
 //排序
 void MaxHeapSort1(int a[], int n)
 {
-	MakeMaxHeap1(a, n);
+	//建立最大堆
+	for (int i = n / 2 - 1; i >= 0; i--)
+		MaxHeapFixdown1(a, i, n);
 	for (int i = n - 1; i >= 1; i--)
 	{
 		a[i] = a[i] + a[0];
