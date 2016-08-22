@@ -8,7 +8,7 @@
 		   使得left中的元素都小于等于支点，而right 中的元素都大于等于支点递归地使用快速排序方法对left
 		   进行排序递归地使用快速排序方法对right 进行排序所得结果为left+middle+right*/
 
-		   /*稳定性分析：不稳定，反例2 3 3' 1->1 3 3' 1->1 3 3' 3->1 2 3' 3--以2分开继续快排-->1 2 3' 3*/
+		   /*稳定性分析：不稳定，反例2 3 3' 1->1 3 3' 1->1 3 3' 2->1 2 3' 3--以2分开继续快排-->1 2 3' 3*/
 
 		   /*复杂度分析：http://blog.csdn.net/matrix_laboratory/article/details/9342415
 						快速排序每次将待排序数组分为两个部分，在理想状况下，每一次都将待排序数组划分成等长两个部分，
@@ -18,7 +18,7 @@
 						快速排序在对序列的操作过程中只需花费常数级的空间。空间复杂度S(1)。
 						但需要注意递归栈上需要花费最少logn最多n的空间。*/
 
-//1st
+						//1st
 void QuikSort1(int ns[], int l, int r)
 {
 	if (l < r)
@@ -67,8 +67,8 @@ void QuikSort3(int ns[], int l, int r)
 {
 	if (l < r)
 	{
-		int i=l,j=r, temp = ns[l];
-		while (i<j)
+		int i = l, j = r, temp = ns[l];
+		while (i < j)
 		{
 			while (i < j&&ns[j] >= temp)
 				j--;
@@ -89,8 +89,8 @@ void QuikSort4(int ns[], int l, int r)
 {
 	if (l < r)
 	{
-		int i=l, j=r, temp=ns[l];
-		while (i<j)
+		int i = l, j = r, temp = ns[l];
+		while (i < j)
 		{
 			while (i < j&&ns[j] >= temp)
 				j--;
@@ -102,8 +102,8 @@ void QuikSort4(int ns[], int l, int r)
 				ns[j--] = ns[i];
 		}
 		ns[i] = temp;
-		QuikSort4(ns, l, i-1);
-		QuikSort4(ns, i+1,r);		
+		QuikSort4(ns, l, i - 1);
+		QuikSort4(ns, i + 1, r);
 	}
 }
 //5th
@@ -112,7 +112,7 @@ void QuickSort5(int ns[], int l, int r)
 	if (l < r)
 	{
 		int i = l, j = r, temp = ns[l];
-		while (i<j)
+		while (i < j)
 		{
 			while (i < j&&ns[j] >= temp)
 				j--;
@@ -125,7 +125,7 @@ void QuickSort5(int ns[], int l, int r)
 		}
 		ns[i] = temp;
 		QuickSort5(ns, l, i - 1);
-		QuickSort5(ns, i+1, r);
+		QuickSort5(ns, i + 1, r);
 	}
 }
 //6th
@@ -134,7 +134,7 @@ void QuickSort6(int ns[], int l, int r)
 	if (l < r)
 	{
 		int i = l, j = r, temp = ns[l];
-		while (i<j)
+		while (i < j)
 		{
 			while (i < j&&ns[j] >= temp)
 				j--;
@@ -150,11 +150,55 @@ void QuickSort6(int ns[], int l, int r)
 		QuickSort6(ns, i + 1, r);
 	}
 }
+//7th
+void QuickSort7(int ns[], int l, int r)
+{
+	if (l < r)
+	{
+		int temp = ns[l], i = l, j = r;
+		while (i < j)
+		{
+			while (ns[j] >= temp&&i < j)
+				j--;
+			if (i < j)
+				ns[i++] = ns[j];
+			while (ns[i] < temp&&i < j)
+				i++;
+			if (i < j)
+				ns[j--] = ns[i];
+		}
+		ns[i] = temp;
+		QuickSort7(ns, l, i - 1);
+		QuickSort7(ns, i + 1, r);
+	}
+}
+//8th
+void QuickSort8(int ns[], int l, int r)
+{
+	if (l < r)
+	{
+		int i=l, j=r, temp = ns[l];
+		while (i < j)
+		{
+			while (i < j&&ns[j] >= temp)
+				j--;
+			if (i < j)
+				ns[i++] = ns[j];
+			while (i < j&&ns[i] < temp)
+				i++;
+			if (i < j)
+				ns[j--] = ns[i];
+		}
+		ns[i] = temp;
+		QuickSort8(ns, l, i - 1);
+		QuickSort8(ns, i + 1, r);
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10, l = 0, r = 9;
-	QuickSort6(nums, l, r);
+	QuickSort8(nums, l, r);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
