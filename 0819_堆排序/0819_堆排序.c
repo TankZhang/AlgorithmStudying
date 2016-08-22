@@ -24,8 +24,9 @@
 			因此堆排的算法复杂度<O(n)+nlogn,也就近似的认为是nlogn。
 			空间复杂度O(1)*/
 
+//1st
 //从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2  
-void MaxHeapFixdown1(int a[], int i, int n)
+void Fix1(int a[], int i, int n)
 {
 	int j, temp;
 	temp = a[i];
@@ -43,25 +44,82 @@ void MaxHeapFixdown1(int a[], int i, int n)
 	a[i] = temp;
 }
 //排序
-void MaxHeapSort1(int a[], int n)
+void HeapSort1(int a[], int n)
 {
 	//建立最大堆
 	for (int i = n / 2 - 1; i >= 0; i--)
-		MaxHeapFixdown1(a, i, n);
+		Fix1(a, i, n);
 	for (int i = n - 1; i >= 1; i--)
 	{
 		a[i] = a[i] + a[0];
 		a[0] = a[i] - a[0];
 		a[i] = a[i] - a[0];
-		MaxHeapFixdown1(a, 0, i);
+		Fix1(a, 0, i);
 	}
 }
-
+//2nd
+void Fix2(int a[], int i, int n)
+{
+	int j, temp;
+	temp = a[i];
+	j = 2 * i + 1;
+	while (j<n)
+	{
+		if (j + 1 < n&&a[j + 1] >= a[j])
+			j++;
+		if (a[j] < temp)
+			break;
+		a[i] = a[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	a[i] = temp;
+}
+void HeapSort2(int a[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix2(a, i, n);
+	for (int i = n-1; i > 0; i--)
+	{
+		a[i] = a[i] + a[0];
+		a[0] = a[i] - a[0];
+		a[i] = a[i] - a[0];
+		Fix2(a, 0, i);
+	}
+}
+//3rd
+void Fix3(int a[], int i, int n)
+{
+	int j = 2 * i + 1, temp = a[i];
+	while (j<n)
+	{
+		if (j + 1 < n&&a[j + 1] > a[j])
+			j++;
+		if (a[j] < temp)
+			break;
+		a[i] = a[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	a[i] = temp;
+}
+void HeapSort3(int a[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix3(a, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		a[i] = a[i] + a[0];
+		a[0] = a[i] - a[0];
+		a[i] = a[i] - a[0];
+		Fix3(a, 0, i);
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	MaxHeapSort1(nums, n);
+	HeapSort3(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
