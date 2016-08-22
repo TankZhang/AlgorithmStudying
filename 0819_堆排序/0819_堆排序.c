@@ -1,7 +1,18 @@
 #include<stdio.h>
 
 /*算法原理：http://blog.csdn.net/morewindows/article/details/6709644
-		   略复杂，用到类似数据结构，不断调整输出*/
+		   略复杂，用到类似数据结构，不断调整输出
+		   堆的定义 n 个元素的序列 {k1,k2,...,kn}当且仅当满足下列关系时，
+			称为堆:
+			ki<=k2i     ki<=k2i+1     (i=1,2,...,n/2)
+			或
+			ki>=k2i     ki>=k2i+1     (i=1,2,...,n/2)
+			堆排序思路：
+			建立在树形选择排序基础上；
+			将待排序列建成堆（初始堆生成）后，序列的第一个元素（堆顶元素）就一定是序列中的最大元素；
+			将其与序列的最后一个元素交换，将序列长度减一；
+			再将序列建成堆（堆调整）后，堆顶元素仍是序列中的最大元素，再次将其与序列最后一个元素交换并缩短序列长度；
+			反复此过程，直至序列长度为一，所得序列即为排序后结果。*/
 
 /*稳定性分析：不稳定，反例3 27 36 27'，如果堆顶3先输出，则，27'跑到堆顶，然后堆稳定，
 			继续输出堆顶，27'，这样说明27'先于27输出，不稳定。*/
@@ -31,16 +42,12 @@ void MaxHeapFixdown1(int a[], int i, int n)
 	}
 	a[i] = temp;
 }
-//建立最大堆
-void MakeMaxHeap1(int a[], int n)
-{
-	for (int i = n / 2 - 1; i >= 0; i--)
-		MaxHeapFixdown1(a, i, n);
-}
 //排序
 void MaxHeapSort1(int a[], int n)
 {
-	MakeMaxHeap1(a, n);
+	//建立最大堆
+	for (int i = n / 2 - 1; i >= 0; i--)
+		MaxHeapFixdown1(a, i, n);
 	for (int i = n - 1; i >= 1; i--)
 	{
 		a[i] = a[i] + a[0];
