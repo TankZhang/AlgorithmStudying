@@ -115,11 +115,67 @@ void HeapSort3(int a[], int n)
 		Fix3(a, 0, i);
 	}
 }
+//4th
+void Fix4(int a[], int i, int n)
+{
+	int j = 2 * i + 1, temp = a[i];
+	while(j<n)
+	{
+		if (j + 1 < n&&a[j + 1] > a[j])
+			j++;
+		if (a[j] <= temp)
+			break;
+		a[i] = a[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	a[i] = temp;	
+}
+void HeapSort4(int a[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix4(a, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		a[i] = a[i] + a[0];
+		a[0] = a[i] - a[0];
+		a[i] = a[i] - a[0];
+		Fix4(a, 0, i);
+	}
+}
+//5th
+void Fix5(int a[], int i, int n)
+{
+	int j = 2 * i + 1, temp = a[i];
+	while (j<n)
+	{
+		if (j + 1 < n&&a[j + 1] > a[j])
+			j++;
+		if (a[j] <= temp)
+			break;
+		a[i] = a[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	a[i] = temp;
+}
+void HeapSort5(int a[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix5(a, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		a[i] = a[0] + a[i];
+		a[0] = a[i] - a[0];
+		a[i] = a[i] - a[0];
+		Fix5(a, 0, i);
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	HeapSort3(nums, n);
+	HeapSort5(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);

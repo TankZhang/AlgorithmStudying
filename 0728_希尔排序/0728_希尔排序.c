@@ -253,7 +253,7 @@ void ShellSort13(int nums[], int n)
 				{
 					k = j - gap;
 					temp = nums[j];
-					while (k>=0&&nums[k]>temp)
+					while (k >= 0 && nums[k] > temp)
 					{
 						nums[k + gap] = nums[k];
 						k -= gap;
@@ -265,14 +265,14 @@ void ShellSort13(int nums[], int n)
 void ShellSort14(int ns[], int n)
 {
 	int gap, i, j, k, temp;
-	for(gap=n/2;gap>0;gap/=2)
-		for(i=0;i<gap;i++)
-			for(j=i+gap;j<n;j+=gap)
+	for (gap = n / 2; gap > 0; gap /= 2)
+		for (i = 0; i < gap; i++)
+			for (j = i + gap; j < n; j += gap)
 				if (ns[j - gap] > ns[j])
 				{
 					k = j - gap;
 					temp = ns[j];
-					while (ns[k]>temp&&k>=0)
+					while (ns[k] > temp&&k >= 0)
 					{
 						ns[k + gap] = ns[k];
 						k -= gap;
@@ -284,14 +284,14 @@ void ShellSort14(int ns[], int n)
 void ShellSort15(int nums[], int n)
 {
 	int i, j, k, temp, gap;
-	for(gap=n/2;gap>0;gap/=2)
-		for(i=0;i<gap;i++)
-			for(j=i+gap;j<n;j+=gap)
+	for (gap = n / 2; gap > 0; gap /= 2)
+		for (i = 0; i < gap; i++)
+			for (j = i + gap; j < n; j += gap)
 				if (nums[j] < nums[j - gap])
 				{
 					temp = nums[j];
 					k = j - gap;
-					while (nums[k]>temp&&k>=0)
+					while (nums[k] > temp&&k >= 0)
 					{
 						nums[k + gap] = nums[k];
 						k -= gap;
@@ -302,16 +302,16 @@ void ShellSort15(int nums[], int n)
 //16th
 void ShellSort16(int nums[], int n)
 {
-	int gap,i, j, k, temp;
-	for(gap=n/2;gap>0;gap/=2)
-		for(i=0;i<gap;i++)
+	int gap, i, j, k, temp;
+	for (gap = n / 2; gap > 0; gap /= 2)
+		for (i = 0; i < gap; i++)
 			for (j = i + gap; j < n; j += gap)
 			{
 				if (nums[j - gap] > nums[j])
 				{
 					temp = nums[j];
 					k = j - gap;
-					while (k>=0&&nums[k]>temp)
+					while (k >= 0 && nums[k] > temp)
 					{
 						nums[k + gap] = nums[k];
 						k -= gap;
@@ -319,13 +319,32 @@ void ShellSort16(int nums[], int n)
 					nums[k + gap] = temp;
 				}
 			}
-     
+
+}
+//17th
+void ShellSort17(int nums[], int n)
+{
+	int gap, i, j, k, temp;
+	for (gap = n / 2; gap > 0; gap /= 2)
+		for (i = 0; i < gap; i++)
+			for (j = i + gap; j < n; j += gap)
+				if (nums[j - gap] > nums[j])
+				{
+					temp = nums[j];
+					k = j - gap;
+					while (nums[k] > temp&&k >= 0)
+					{
+						nums[k + gap] = nums[k];
+						k -= gap;
+					}
+					nums[k + gap] = temp;
+				}
 }
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	ShellSort16(nums, n);
+	ShellSort17(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
