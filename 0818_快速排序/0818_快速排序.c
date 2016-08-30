@@ -216,11 +216,33 @@ void QuickSort9(int ns[], int l, int r)
 		QuickSort9(ns, i+1, r);
 	}
 }
+//10th
+void QuickSort10(int ns[], int l, int r)
+{
+	if (l < r)
+	{
+		int temp = ns[l], i = l, j = r;
+		while (i < j)
+		{
+			while (ns[j] >= temp&&i<j)
+				j--;
+			if(i<j)
+			ns[i++] = ns[j];
+			while (ns[i] < temp&&i < j)
+				i++;
+			if(i<j)
+			ns[j--] = ns[i];
+		}
+		ns[i] = temp;
+		QuickSort10(ns, l, i);
+		QuickSort10(ns, i+1, r);
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10, l = 0, r = 9;
-	QuickSort9(nums, l, r);
+	QuickSort10(nums, l, r);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);

@@ -14,18 +14,18 @@
 			再将序列建成堆（堆调整）后，堆顶元素仍是序列中的最大元素，再次将其与序列最后一个元素交换并缩短序列长度；
 			反复此过程，直至序列长度为一，所得序列即为排序后结果。*/
 
-/*稳定性分析：不稳定，反例3 27 36 27'，如果堆顶3先输出，则，27'跑到堆顶，然后堆稳定，
-			继续输出堆顶，27'，这样说明27'先于27输出，不稳定。*/
+			/*稳定性分析：不稳定，反例3 27 36 27'，如果堆顶3先输出，则，27'跑到堆顶，然后堆稳定，
+						继续输出堆顶，27'，这样说明27'先于27输出，不稳定。*/
 
-/*复杂度分析：http://blog.csdn.net/mikon_lee/article/details/12313355
-			堆排由两部分组成:1.建初堆2.堆顶元素与堆中的最后一个元素交换并重建堆。
-			第一步复杂度O(n).
-			第二步：总共交换n-1次，每次重建堆的复杂度是logn,所以第二步的复杂度为[log(n-1)+log(n-2)+...+log(2)]<nlogn
-			因此堆排的算法复杂度<O(n)+nlogn,也就近似的认为是nlogn。
-			空间复杂度O(1)*/
+						/*复杂度分析：http://blog.csdn.net/mikon_lee/article/details/12313355
+									堆排由两部分组成:1.建初堆2.堆顶元素与堆中的最后一个元素交换并重建堆。
+									第一步复杂度O(n).
+									第二步：总共交换n-1次，每次重建堆的复杂度是logn,所以第二步的复杂度为[log(n-1)+log(n-2)+...+log(2)]<nlogn
+									因此堆排的算法复杂度<O(n)+nlogn,也就近似的认为是nlogn。
+									空间复杂度O(1)*/
 
-//1st
-//从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2  
+									//1st
+									//从i节点开始调整,n为节点总数 从0开始计算 i节点的子节点为 2*i+1, 2*i+2  
 void Fix1(int a[], int i, int n)
 {
 	int j, temp;
@@ -63,7 +63,7 @@ void Fix2(int a[], int i, int n)
 	int j, temp;
 	temp = a[i];
 	j = 2 * i + 1;
-	while (j<n)
+	while (j < n)
 	{
 		if (j + 1 < n&&a[j + 1] >= a[j])
 			j++;
@@ -79,7 +79,7 @@ void HeapSort2(int a[], int n)
 {
 	for (int i = n / 2 - 1; i >= 0; i--)
 		Fix2(a, i, n);
-	for (int i = n-1; i > 0; i--)
+	for (int i = n - 1; i > 0; i--)
 	{
 		a[i] = a[i] + a[0];
 		a[0] = a[i] - a[0];
@@ -91,7 +91,7 @@ void HeapSort2(int a[], int n)
 void Fix3(int a[], int i, int n)
 {
 	int j = 2 * i + 1, temp = a[i];
-	while (j<n)
+	while (j < n)
 	{
 		if (j + 1 < n&&a[j + 1] > a[j])
 			j++;
@@ -119,7 +119,7 @@ void HeapSort3(int a[], int n)
 void Fix4(int a[], int i, int n)
 {
 	int j = 2 * i + 1, temp = a[i];
-	while(j<n)
+	while (j < n)
 	{
 		if (j + 1 < n&&a[j + 1] > a[j])
 			j++;
@@ -129,7 +129,7 @@ void Fix4(int a[], int i, int n)
 		i = j;
 		j = 2 * i + 1;
 	}
-	a[i] = temp;	
+	a[i] = temp;
 }
 void HeapSort4(int a[], int n)
 {
@@ -147,7 +147,7 @@ void HeapSort4(int a[], int n)
 void Fix5(int a[], int i, int n)
 {
 	int j = 2 * i + 1, temp = a[i];
-	while (j<n)
+	while (j < n)
 	{
 		if (j + 1 < n&&a[j + 1] > a[j])
 			j++;
@@ -171,11 +171,67 @@ void HeapSort5(int a[], int n)
 		Fix5(a, 0, i);
 	}
 }
+//6th
+void Fix6(int ns[], int i, int n)
+{
+	int j = 2 * i + 1, temp = ns[i];
+	while (j < n)
+	{
+		if (j + 1 < n&&ns[j + 1] > ns[j])
+			j++;
+		if (ns[j] <= temp)
+			break;
+		ns[i] = ns[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	ns[i] = temp;
+}
+void HeapSort6(int ns[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix6(ns, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		ns[i] = ns[0] + ns[i];
+		ns[0] = ns[i] - ns[0];
+		ns[i] = ns[i] - ns[0];
+		Fix6(ns, 0, i);
+	}
+}
+//7th
+void Fix7(int ns[], int i, int n)
+{
+	int j = 2 * i + 1, temp = ns[i];
+	while (j<n)
+	{
+		if (j + 1 < n&&ns[j + 1] > ns[j])
+			j++;
+		if (ns[j] < temp)
+			break;
+		ns[i] = ns[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	ns[i] = temp;
+}
+void HeapSort7(int ns[], int n)
+{
+	for (int i = n/2-1; i >=0;i--)
+		Fix7(ns, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		ns[0] = ns[0] + ns[i];
+		ns[i] = ns[0] - ns[i];
+		ns[0] = ns[0] - ns[i];
+		Fix7(ns, 0, i);
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	HeapSort5(nums, n);
+	HeapSort7(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);
