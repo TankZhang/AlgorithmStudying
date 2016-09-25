@@ -92,8 +92,8 @@ void Merge4(int ns[], int l, int m, int h)
 {
 	int* temp;
 	temp = (int *)malloc((h - l + 1) * sizeof(int));
-	int i = l, j = m+1, k = 0;
-	while (i <= m&&j <=h)
+	int i = l, j = m + 1, k = 0;
+	while (i <= m&&j <= h)
 		temp[k++] = ns[i] < ns[j] ? ns[i++] : ns[j++];
 	while (i <= m)
 		temp[k++] = ns[i++];
@@ -115,9 +115,9 @@ void MergeSort4(int ns[], int l, int h)
 //5th
 void Merge5(int ns[], int l, int m, int h)
 {
-	int i = l, j = m+1,k=0;
+	int i = l, j = m + 1, k = 0;
 	int *temp;
-	temp = (int *)malloc((h - l + 1)*sizeof(int));
+	temp = (int *)malloc((h - l + 1) * sizeof(int));
 	while (i <= m&&j <= h)
 		temp[k++] = ns[i] < ns[j] ? ns[i++] : ns[j++];
 	while (i <= m)
@@ -127,7 +127,7 @@ void Merge5(int ns[], int l, int m, int h)
 	for (i = l, j = 0; i <= h; i++, j++)
 		ns[i] = temp[j];
 }
-void MergeSort5(int ns[], int l,  int h)
+void MergeSort5(int ns[], int l, int h)
 {
 	if (l < h)
 	{
@@ -158,7 +158,7 @@ void MergeSort6(int ns[], int l, int h)
 	{
 		int m = (l + h) / 2;
 		MergeSort6(ns, l, m);
-		MergeSort6(ns, m+1,h);
+		MergeSort6(ns, m + 1, h);
 		Merge6(ns, l, m, h);
 	}
 }
@@ -167,7 +167,7 @@ void Merge7(int ns[], int l, int m, int h)
 {
 	int *temp;
 	temp = (int *)malloc((h - l + 1) * sizeof(int));
-	int i=l, j=m+1,k=0;
+	int i = l, j = m + 1, k = 0;
 	while (i <= m&&j <= h)
 		temp[k++] = ns[i] <= ns[j] ? ns[i++] : ns[j++];
 	while (i <= m)
@@ -187,6 +187,58 @@ void MergeSort7(int ns[], int l, int h)
 		Merge7(ns, l, m, h);
 	}
 }
+//8th
+void Merge8(int ns[], int l, int m, int h)
+{
+	int *temp;
+	temp = (int *)malloc((h - l + 1) * sizeof(int));
+	int i = l, j = m + 1, k = 0;
+	while (i <= m&&j <= h)
+		temp[k++] = ns[i] < ns[j] ? ns[i++] : ns[j++];
+	while (i <= m)
+		temp[k++] = ns[i++];
+	while (j <= h)
+		temp[k++] = ns[j++];
+	for (i = l, j = 0; i <= h; i++, j++)
+		ns[i] = temp[j];
+}
+void MergeSort8(int ns[], int l, int h)
+{
+	if (l < h)
+	{
+		int m = (l + h) / 2;
+		MergeSort8(ns, l, m);
+		MergeSort8(ns, m + 1, h);
+		Merge8(ns, l, m, h);
+	}
+}
+
+//9th
+void Merge9(int ns[], int l, int m, int h)
+{
+	int *temp;
+	int i = l, j = m + 1, k = 0;
+	temp = (int *)malloc((h - l + 1) * sizeof(int));
+	while (i <= m&&j <= h)
+		temp[k++] = ns[i] < ns[j] ? ns[i++] : ns[j++];
+	while (i <= m)
+		temp[k++] = ns[i++];
+	while (j <= h)
+		temp[k++] = ns[j++];
+	for (i = 0, j = l; j <= h; i++, j++)
+		ns[j] = temp[i];
+}
+void MergeSort9(int ns[], int l, int h)
+{
+	if (l<h)
+	{
+		int m = (l + h) / 2;
+		MergeSort9(ns, l, m);
+		MergeSort9(ns, m + 1, h);
+		Merge9(ns, l, m, h);
+	}
+}
+
 int main()
 {
 	int nums[10] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
@@ -194,7 +246,7 @@ int main()
 	int high = 9;
 	int n = 10;
 
-	MergeSort7(nums, low, high);
+	MergeSort9(nums, low, high);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);

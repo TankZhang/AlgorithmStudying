@@ -359,11 +359,49 @@ void ShellSort18(int nums[], int n)
 					nums[k + gap] = temp;
 				}
 }
+//19th
+void ShellSort19(int nums[], int n)
+{
+	int gap, i, j, k, temp;
+	for(gap=n/2;gap>0;gap/=2)
+		for(i=0;i<gap;i++)
+			for(j=i+gap;j<n;j+=gap)
+				if (nums[j - gap] > nums[j])
+				{
+					temp = nums[j];
+					k = j - gap;
+					while (k >= 0&&nums[k]>temp)
+					{
+						nums[k + gap] = nums[k];
+						k -= gap;
+					}
+					nums[k + gap] = temp;
+				}
+}
+//20
+void ShellSord20(int nums[], int n)
+{
+	int gap, i, j, k, temp;
+	for(gap=n/2;gap>0;gap/=2)
+		for(i=0;i<gap;i++)
+			for(j=i+gap;j<n;j+=gap)
+				if (nums[j - gap] > nums[j])
+				{
+					temp = nums[j];
+					k = j - gap;
+					while (k>=0&&nums[k]>temp)
+					{
+						nums[k + gap] = nums[k];
+						k -= gap;
+					}
+					nums[k + gap] = temp;
+				}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	ShellSort18(nums, n);
+	ShellSord20(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", nums[i]);

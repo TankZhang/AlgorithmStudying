@@ -227,6 +227,35 @@ void HeapSort7(int ns[], int n)
 		Fix7(ns, 0, i);
 	}
 }
+//8th
+void Fix8(int ns[], int i, int n)
+{
+	int j = 2 * i + 1, temp = ns[i];
+	while (j < n)
+	{
+		if (j + 1 < n&&ns[j + 1] > ns[j])
+			j++;
+		if (ns[j] < temp)
+			break;
+		ns[i] = ns[j];
+		i = j;
+		j = 2 * i + 1;
+	}
+	ns[i] = temp;
+}
+void HeapSort8(int ns[], int n)
+{
+	for (int i = n / 2 - 1; i >= 0; i--)
+		Fix8(ns, i, n);
+	for (int i = n - 1; i > 0; i--)
+	{
+		ns[0] = ns[0] + ns[i];
+		ns[i] = ns[0] - ns[i];
+		ns[0] = ns[0] - ns[i];
+		Fix8(ns, 0, i);
+	}
+}
+
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };

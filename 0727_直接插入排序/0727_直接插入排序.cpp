@@ -360,11 +360,47 @@ void InsertionSort19(int nums[], int n)
 		}
 	}
 }
+//20th
+void InsertionSort20(int nums[], int n)
+{
+	int i, j, k, temp;
+	for (i = 1; i < n; i++)
+	{
+		for (j = i - 1; j >= 0; j--)
+			if (nums[j] <= nums[i])
+				break;
+		if (j != i - 1)
+		{
+			temp = nums[i];
+			for (k = i - 1; k > j; k--)
+				nums[k + 1] = nums[k];
+			nums[k + 1] = temp;
+		}
+	}
+}
+//21th
+void InsertionSort21(int nums[], int n)
+{
+	int i, j, k, temp;
+	for (i = 1; i < n; i++)
+	{
+		for (j = i - 1; j >= 0; j--)
+			if (nums[j] <= nums[i])
+				break;
+		if (j != i - 1)
+		{
+			temp = nums[i];
+			for (k = i - 1; k > j; k--)
+				nums[k + 1] = nums[k];
+			nums[k + 1] = temp;
+		}
+	}
+}
 int main()
 {
 	int nums[] = { 49, 38, 65, 97, 26, 13, 27, 49, 55, 4 };
 	int n = 10;
-	InsertionSort19(nums, n);
+	InsertionSort21(nums, n);
 	for (int i = 0; i < n; i++)
 	{
 		printf("%d  ", nums[i]);
